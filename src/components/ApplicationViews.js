@@ -11,6 +11,7 @@ import OwnerManager from "../modules/OwnerManager"
 import AnimalDetail from './animal/AnimalDetail'
 import EmployeeDetail from './employee/EmployeeDetail'
 import LocationDetail from './location/LocationDetail'
+import OwnerDetail from './owner/OwnerDetail'
 
 
 export default class ApplicationViews extends Component {
@@ -119,10 +120,13 @@ export default class ApplicationViews extends Component {
                 <Route path="/employees/:employeeId(\d+)" render={(props) => {
                    return <EmployeeDetail {...props} fireEmployee={this.fireEmployee} employees={this.state.employees} />
                 }} />
-                <Route path="/owners" render={(props) => {
+                <Route exact path="/owners" render={(props) => {
                     return <OwnerList 
                     owners={this.state.owners}
                     removeOwner={this.removeOwner} />
+                }} />
+                <Route path="/owners/:ownerId(\d+)" render={(props) => {
+                   return <OwnerDetail {...props} removeOwner={this.removeOwner} owners={this.state.owners} />
                 }} />
                 <Route path="/locations/:locationId(\d+)" render={(props) => {
                    return <LocationDetail {...props} locations={this.state.locations} />

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ownerIcon from "./OwnerIcon.png"
+import { Link } from "react-router-dom";
 import "./Owner.css"
 
 export default class OwnerList extends Component {
@@ -13,6 +14,7 @@ export default class OwnerList extends Component {
                       <h5 className="card-title">
                         <img src={ownerIcon} className="icon--owner" />
                         {owner.name}
+                        <Link className="nav-link" to={`/owners/${owner.id}`}>Details</Link>
                         <a href="#"
                           onClick={() => this.props.deleteOwner(owner.id)}
                           className="card-link">Remove Owner</a>

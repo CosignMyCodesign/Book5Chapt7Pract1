@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import LocationIcon from "./LocationIcon.png"
+import { Link } from "react-router-dom";
 import "./Location.css"
 
 
@@ -16,6 +17,8 @@ export default class LocationList extends Component {
                           <em>{location.name}</em>
                           <br></br>
                           {location.address}
+                          <br></br>
+                          <Link className="nav-link" to={`/locations/${location.id}`}>Details</Link>
                       </h5>
                     </div>
                   </div>

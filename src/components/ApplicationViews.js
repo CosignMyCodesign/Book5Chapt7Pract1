@@ -10,6 +10,7 @@ import LocationManager from "../modules/LocationManager"
 import OwnerManager from "../modules/OwnerManager"
 import AnimalDetail from './animal/AnimalDetail'
 import EmployeeDetail from './employee/EmployeeDetail'
+import LocationDetail from './location/LocationDetail'
 
 
 export default class ApplicationViews extends Component {
@@ -122,6 +123,9 @@ export default class ApplicationViews extends Component {
                     return <OwnerList 
                     owners={this.state.owners}
                     removeOwner={this.removeOwner} />
+                }} />
+                <Route path="/locations/:locationId(\d+)" render={(props) => {
+                   return <LocationDetail {...props} locations={this.state.locations} />
                 }} />
             </React.Fragment>
         )
